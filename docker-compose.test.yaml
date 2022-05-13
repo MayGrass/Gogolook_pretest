@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    environment:
+      - DEBUG=True
+      - HOST=127.0.0.1
+    depends_on:
+      - redis
+    command: python api_tests.py
+
+  redis:
+    image: redis:alpine
